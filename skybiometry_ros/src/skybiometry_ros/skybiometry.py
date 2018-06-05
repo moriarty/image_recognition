@@ -28,10 +28,11 @@ class SkyFaceProperties:
         self.glasses = Attribute()
         self.lips = Attribute()
         self.mood = Attribute()
+        self.yaw = None
 
     def __repr__(self):
-        return "FaceProperties(age=%s, eyes=%s, gender=%s, glasses=%s, lips=%s, mood=%s)" % (
-            self.age_est, self.eyes, self.gender, self.glasses, self.lips, self.mood
+        return "FaceProperties(age=%s, eyes=%s, gender=%s, glasses=%s, lips=%s, mood=%s, yaw=%s)" % (
+            self.age_est, self.eyes, self.gender, self.glasses, self.lips, self.mood, self.yaw
         )
 
 
@@ -83,6 +84,9 @@ class Skybiometry:
             for name, attr in attrs.iteritems():
                 if hasattr(fp, name):
                     setattr(fp, name, Attribute(attr["value"], attr["confidence"] / 100.0))
+
+            setattr(fp, 'yaw', photo["tags"][0]['yaw'])
+
             fps.append(fp)
 
         return fps

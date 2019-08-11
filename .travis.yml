@@ -11,5 +11,5 @@ install:
   - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
 
 script:
-  - sudo -H pip install --upgrade setuptools
+  - sudo -H pip install --upgrade scipy
   - .ci_config/travis.sh

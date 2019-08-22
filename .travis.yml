@@ -8,7 +8,7 @@ matrix:
     env: ROS_DISTRO=kinetic
 
 install:
-  - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
+  - git clone https://github.com/tue-robotics/industrial_ci.git .ci_config
 
 script:
   - .ci_config/travis.sh
